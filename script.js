@@ -2,10 +2,21 @@ let video = document.querySelector('.player__video');
 let speed=document.querySelector('.speed-bar');
 let backward=document.querySelector('.rewind');
 let forward=document.querySelector('.forward');
+let play=document.querySelector('.toggle');
 
+play.addEventListener("click",playFn);
 forward.addEventListener("click",forwardFn);
 backward.addEventListener("click",backwardFn);
 
+function playFn(e) {
+	if(play.innerHTML==" ► "){
+		play.innerHTML=" ❚ ❚ ";
+		video.play();
+		return;
+	}
+	else play.innerHTML=" ► ";
+	video.pause();
+}
 
 speed.addEventListener("click",(e)=>{
 	if(speed.innerHTML=="1x"){
